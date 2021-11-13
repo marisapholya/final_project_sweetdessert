@@ -5,7 +5,6 @@ import 'package:sweet_dessert/pages/home/home_page.dart';
 import 'package:sweet_dessert/pages/login/welcome_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../constants.dart';
 
 class LoginPage extends StatefulWidget {
   static const routeName = '/login';
@@ -30,29 +29,28 @@ class _LoginPageState extends State<LoginPage> {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: Container(
+          decoration: const BoxDecoration(
+            image: const DecorationImage(
+              image: const AssetImage("assets/images/bg.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
           child: Stack(
             children: <Widget>[
-              // รูปส่วนหัว
-              Image.asset(
-                "assets/images/bg.png",
-                height: 400.0,
-                width: 500.0,
-                fit: BoxFit.cover,
-              ),
               // ที่กรอก login
               SingleChildScrollView(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      height: 340.0,
-                    ),
+                    SizedBox(height: 340.0,),
                     Container(
                       color: Colors.white,
                       height: 450.0,
                       width: double.maxFinite,
                       padding: const EdgeInsets.all(32.0),
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
                             'LOGIN',
@@ -63,28 +61,38 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           SizedBox(height: 20.0),
-                          Text(
-                            'USERNAME',
-                            style: GoogleFonts.itim(
-                              fontSize: 20,
-                              color: Colors.pinkAccent.shade100,
-                              fontWeight: FontWeight.w900,
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                'USERNAME',
+                                style: GoogleFonts.itim(
+                                  fontSize: 20,
+                                  color: Colors.pinkAccent.shade100,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                            ],
                           ),
                           SizedBox(height: 4.0),
                           LoginForm(),
                           SizedBox(height: 8.0),
-                          Text(
-                            'USERNAME',
-                            style: GoogleFonts.itim(
-                              fontSize: 20,
-                              color: Colors.pinkAccent.shade100,
-                              fontWeight: FontWeight.w900,
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                'USERNAME',
+                                style: GoogleFonts.itim(
+                                  fontSize: 20,
+                                  color: Colors.pinkAccent.shade100,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                            ],
                           ),
                           SizedBox(height: 4.0),
                           PasswordForm(),
-                          SizedBox(height: 15.0),
+                          SizedBox(height: 20.0),
                           ElevatedButton.icon(
                             icon: const Icon(Icons.lock_open),
                             label: const Text('LOGIN'),
@@ -96,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               primary: Colors.pinkAccent.shade200,
                               onPrimary: Colors.white,
-                              fixedSize: const Size(400.0, 60.0),
+                              fixedSize: const Size(600.0, 60.0),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
@@ -105,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                               CheckLogin(context);
                             },
                           ),
-                          SizedBox(height: 10.0),
+                          SizedBox(height: 20.0),
                           Text(
                             'USERNAME : marisa Password : marisa',
                             style: GoogleFonts.itim(

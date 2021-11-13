@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
-                height: 480,
+                height: 480.0,
                 padding: const EdgeInsets.only(left: 32),
                 child: Swiper(
                   itemCount: dessert.length,

@@ -19,24 +19,25 @@ class DetailPageDrinks extends StatelessWidget {
           children: <Widget>[
             SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+                  //รูป ชื่อกับ type
                   Padding(
-                    padding: const EdgeInsets.all(32.0),
+                    padding: const EdgeInsets.only(left:32.0),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        SizedBox(
-                          height: 60.0,
-                        ),
-                        ClipOval(
+                        SizedBox(height: 60.0),
+                        ClipRRect(
+                          borderRadius: new BorderRadius.circular(150.0),
                           child: Image.asset(
                             drink.image,
+                            fit: BoxFit.fill,
+                            width: 400.0,
+                            height: 200.0,
                           ),
                         ),
-                        SizedBox(
-                          height: 20.0,
-                        ),
+                        SizedBox(height: 20.0),
                         Text(
                           drink.name,
                           style: GoogleFonts.itim(
@@ -44,7 +45,6 @@ class DetailPageDrinks extends StatelessWidget {
                             color: primaryTextColor,
                             fontWeight: FontWeight.w900,
                           ),
-                          textAlign: TextAlign.left,
                         ),
                         Text(
                           drink.type,
@@ -53,19 +53,29 @@ class DetailPageDrinks extends StatelessWidget {
                             color: primaryTextColor,
                             fontWeight: FontWeight.w300,
                           ),
-                          textAlign: TextAlign.left,
                         ),
                         Divider(color: Colors.black38),
-                        SizedBox(height: 32),
-                        Text(
+                      ],
+                    ),
+                  ),
+                  //  ส่วนผสม
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 32.0),
+                        child: Text(
                           'ส่วนผสม',
                           style: GoogleFonts.itim(
                             fontSize: 35,
                             color: const Color(0xff47455f),
                             fontWeight: FontWeight.w300,
                           ),
-                          textAlign: TextAlign.left,
                         ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 32.0),
+                        child:
                         Text(
                           drink.ingredient ?? '',
                           maxLines: 100,
@@ -76,11 +86,12 @@ class DetailPageDrinks extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(height: 32),
-                        Divider(color: Colors.black38),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
+
+                  Divider(color: Colors.black38),
+                  // วิธีทำ
                   Padding(
                     padding: const EdgeInsets.only(left: 32.0),
                     child: Text(
@@ -90,11 +101,10 @@ class DetailPageDrinks extends StatelessWidget {
                         color: const Color(0xff47455f),
                         fontWeight: FontWeight.w300,
                       ),
-                      textAlign: TextAlign.left,
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 32.0, right: 32.0),
+                    padding: const EdgeInsets.only(left: 32.0),
                     child: Text(
                       drink.description ?? '',
                       maxLines: 100,

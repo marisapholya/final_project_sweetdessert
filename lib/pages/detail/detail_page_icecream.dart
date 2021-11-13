@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sweet_dessert/pages/data/data_icecream.dart';
-import 'package:sweet_dessert/pages/type/thaidesert/thaidesert_page.dart';
+import 'package:sweet_dessert/pages/type/icecream/icecream_page.dart';
 import '../constants.dart';
 
 class DetailPageIcecream extends StatelessWidget {
@@ -19,24 +19,25 @@ class DetailPageIcecream extends StatelessWidget {
           children: <Widget>[
             SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+                  //รูป ชื่อกับ type
                   Padding(
-                    padding: const EdgeInsets.all(32.0),
+                    padding: const EdgeInsets.only(left:32.0),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        SizedBox(
-                          height: 60.0,
-                        ),
-                        ClipOval(
+                        SizedBox(height: 60.0),
+                        ClipRRect(
+                          borderRadius: new BorderRadius.circular(150.0),
                           child: Image.asset(
                             icecream.image,
+                            fit: BoxFit.fill,
+                            width: 400.0,
+                            height: 200.0,
                           ),
                         ),
-                        SizedBox(
-                          height: 20.0,
-                        ),
+                        SizedBox(height: 20.0),
                         Text(
                           icecream.name,
                           style: GoogleFonts.itim(
@@ -44,7 +45,6 @@ class DetailPageIcecream extends StatelessWidget {
                             color: primaryTextColor,
                             fontWeight: FontWeight.w900,
                           ),
-                          textAlign: TextAlign.left,
                         ),
                         Text(
                           icecream.type,
@@ -53,19 +53,29 @@ class DetailPageIcecream extends StatelessWidget {
                             color: primaryTextColor,
                             fontWeight: FontWeight.w300,
                           ),
-                          textAlign: TextAlign.left,
                         ),
                         Divider(color: Colors.black38),
-                        SizedBox(height: 32),
-                        Text(
+                      ],
+                    ),
+                  ),
+                  //  ส่วนผสม
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 32.0),
+                        child: Text(
                           'ส่วนผสม',
                           style: GoogleFonts.itim(
                             fontSize: 35,
                             color: const Color(0xff47455f),
                             fontWeight: FontWeight.w300,
                           ),
-                          textAlign: TextAlign.left,
                         ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 32.0),
+                        child:
                         Text(
                           icecream.ingredient ?? '',
                           maxLines: 100,
@@ -76,11 +86,12 @@ class DetailPageIcecream extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(height: 32),
-                        Divider(color: Colors.black38),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
+
+                  Divider(color: Colors.black38),
+                  // วิธีทำ
                   Padding(
                     padding: const EdgeInsets.only(left: 32.0),
                     child: Text(
@@ -90,11 +101,10 @@ class DetailPageIcecream extends StatelessWidget {
                         color: const Color(0xff47455f),
                         fontWeight: FontWeight.w300,
                       ),
-                      textAlign: TextAlign.left,
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 32.0, right: 32.0),
+                    padding: const EdgeInsets.only(left: 32.0),
                     child: Text(
                       icecream.description ?? '',
                       maxLines: 100,
@@ -138,7 +148,7 @@ class DetailPageIcecream extends StatelessWidget {
                       pageBuilder: (BuildContext context,
                           Animation<double> animation,
                           Animation<double> secondaryAnimation) {
-                        return ThaiDesertPage();
+                        return IceCreamPage();
                       },
                       transitionsBuilder: (BuildContext context,
                           Animation<double> animation,

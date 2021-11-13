@@ -28,12 +28,13 @@ class _TypePageState extends State<TypePage> {
             children: <Widget>[
               SingleChildScrollView(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     // Header
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           IconButton(
                             icon: Icon(
@@ -62,22 +63,26 @@ class _TypePageState extends State<TypePage> {
                                       child: child,
                                     );
                                   },
-                                  transitionDuration:
-                                      const Duration(seconds: 1),
+                                  transitionDuration: const Duration(seconds: 1),
                                 ),
                               );
                             },
                           ),
-                          SizedBox(
-                            width: 20.0,
-                          ),
                           Text(
-                            'ประเภท',
+                            'เบเกอรี่',
                             style: GoogleFonts.itim(
                               fontSize: 50.0,
-                              color: Colors.brown.shade500,
+                              color: Colors.brown,
                               fontWeight: FontWeight.w900,
                             ),
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.restaurant_menu,
+                              size: 40.0,
+                              color: Colors.brown.shade500,
+                            ),
+                            onPressed: () {},
                           ),
                         ],
                       ),
